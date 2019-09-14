@@ -1,6 +1,6 @@
 {
   "name": "@nebulario/microservice-layout",
-  "version": "1.0.0",
+  "version": "1.70.0-dev-auth-service-prod",
   "main": "dist/index.js",
   "repository": "git@github.com:vicjicaman/microservice-layout.git",
   "author": "Victor Jimenez <vic.jicama@gmail.com>",
