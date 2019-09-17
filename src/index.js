@@ -1,7 +1,7 @@
 import React from "react";
-import { NavItem } from "reactstrap";
+import { NavItem, NavLink } from "reactstrap";
 
-const Layout = ({ viewer, children, login, logout }) => (
+const Layout = ({ viewer, children, left = [], right = [] }) => (
   <div>
     <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a className="navbar-brand" href="#">
@@ -20,18 +20,24 @@ const Layout = ({ viewer, children, login, logout }) => (
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item ">
-            <a className="nav-link" href="#">
-              Home
-            </a>
-          </li>
+          {[
+            <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>,
+            ...left
+          ]}
         </ul>
       </div>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <NavItem>{viewer.id === null ? login : logout}</NavItem>
-          </li>
+          {[
+            ...right,
+            <NavItem>
+              <NavLink href="/auth">
+                {viewer.username || "Login"}
+              </NavLink>
+            </NavItem>
+          ]}
         </ul>
       </div>
     </nav>
