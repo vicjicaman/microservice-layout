@@ -1,6 +1,6 @@
 {
   "name": "@nebulario/microservice-layout",
-  "version": "1.70.0-home-service-prod",
+  "version": "1.70.1-master",
   "main": "dist/index.js",
   "repository": "git@github.com:vicjicaman/microservice-layout.git",
   "author": "Victor Jimenez <vic.jicama@gmail.com>",
