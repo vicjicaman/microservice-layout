@@ -22,7 +22,14 @@ const Layout = ({ viewer, children, left = [], right = [] }) => (
         <ul className="navbar-nav mr-auto">
           {[
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href="/">
+                <i className="fa fa-home" /> Home
+              </NavLink>
+            </NavItem>,
+            <NavItem>
+              <NavLink href="/blog">
+                <i className="fa fa-book" /> Blog
+              </NavLink>
             </NavItem>,
             ...left
           ]}
@@ -34,7 +41,7 @@ const Layout = ({ viewer, children, left = [], right = [] }) => (
             ...right,
             <NavItem>
               <NavLink href="/auth">
-                {viewer.username || "Login"}
+                <i className="fa fa-user"> {viewer.username || "Login"} </i>
               </NavLink>
             </NavItem>
           ]}
