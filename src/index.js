@@ -1,11 +1,11 @@
 import React from "react";
 import { NavItem, NavLink } from "reactstrap";
 
-const Layout = ({ viewer, children, left = [], right = [] }) => (
-  <div>
+export const Layout = ({ viewer, children, left = [], right = [] }) => (
+  <div className={"mb-4"}>
     <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a className="navbar-brand" href="#">
-        µservices
+        <i className="fa fa-bolt" /> Repoflow Blog
       </a>
       <button
         className="navbar-toggler"
@@ -19,33 +19,10 @@ const Layout = ({ viewer, children, left = [], right = [] }) => (
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
-        <ul className="navbar-nav mr-auto">
-          {[
-            <NavItem>
-              <NavLink href="/">
-                <i className="fa fa-home" /> Home
-              </NavLink>
-            </NavItem>,
-            <NavItem>
-              <NavLink href="/blog">
-                <i className="fa fa-book" /> Blog
-              </NavLink>
-            </NavItem>,
-            ...left
-          ]}
-        </ul>
+        <ul className="navbar-nav mr-auto">{[...left]}</ul>
       </div>
       <div className="collapse navbar-collapse" id="navbarCollapse">
-        <ul className="navbar-nav ml-auto">
-          {[
-            ...right,
-            <NavItem>
-              <NavLink href="/auth">
-                <i className="fa fa-user"> {viewer.username || "Login"} </i>
-              </NavLink>
-            </NavItem>
-          ]}
-        </ul>
+        <ul className="navbar-nav ml-auto">{[...right]}</ul>
       </div>
     </nav>
 
@@ -55,4 +32,18 @@ const Layout = ({ viewer, children, left = [], right = [] }) => (
   </div>
 );
 
-export { Layout };
+export const HomeLink = () => (
+  <NavItem>
+    <NavLink href="/">
+      <i className="fa fa-home" /> Home
+    </NavLink>
+  </NavItem>
+);
+
+export const AccountLink = ({ viewer }) => (
+  <NavItem>
+    <NavLink href="/auth">
+      <i className="fa fa-user"> {viewer.username || "Login"} </i>
+    </NavLink>
+  </NavItem>
+);
